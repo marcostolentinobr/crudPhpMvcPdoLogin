@@ -7,7 +7,7 @@
  - Vinculado a um curso 
  - Vinculado a 0 ou mais cursos  
 
-.Listagem de pessoa ordenado por maior pontuação descrescente, depois nome crescente
+.Listagem de pessoa ordenado por maior pontuação descrescente, depois nome crescente  
 .Logar e/ou cadastrar com tabela USUARIO contendo:  
  - ID_USUARIO BIGINT autoincrement [PK]
  - CPF varchar(11) not null
