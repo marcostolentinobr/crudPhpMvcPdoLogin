@@ -77,7 +77,7 @@ class Model {
     }
 
     public function excluir() {
-        $valores = [$this->chave => coalesce($this->dado[$this->chave], $_POST[$this->chave])];
+        $valores = [$this->chave => coalesce(@$this->dado[$this->chave], @$_POST[$this->chave])];
         $sql = "DELETE FROM $this->tabela " . $this->where($valores);
         return $this->prepareExecute($sql, $valores);
     }

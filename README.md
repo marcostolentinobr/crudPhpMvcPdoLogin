@@ -8,6 +8,13 @@
  - Vinculado a 0 ou mais cursos  
 
 .Listagem de pessoa ordenado por maior pontuação descrescente, depois nome crescente
+.Logar e/ou cadastrar com tabela USUARIO contendo:  
+ - ID_USUARIO BIGINT autoincrement [PK]
+ - CPF varchar(11) not null
+ - Nome varchar(50) not null  
+ - Senha  varchar(20) not null 
+
+.Cada usuário que cadastrar uma pessoa terá sua chave vinculada
 
 ## Requisitos
 
