@@ -62,7 +62,6 @@ class Model {
     }
 
     public function prepareExecute($sql, $dado = [], $listar = false) {
-        //pr($sql);
         $acao = $this->pdo->prepare($sql);
         $execute = $acao->execute($dado);
         return ($listar ? $acao : $execute);
@@ -99,7 +98,6 @@ class Model {
 
     public function listarRetorno($sql, $valores = [], $todos = true) {
         $acao = $this->prepareExecute($sql . $this->where($valores) . $this->order, $valores, true);
-
         if ($todos) {
             return $acao->fetchAll(PDO::FETCH_ASSOC);
         }
@@ -107,7 +105,6 @@ class Model {
     }
 
     public function dadosValidacao() {
-
         if ($this->erro) {
             $mensagem = '';
             foreach ($this->erro as $campo => $msg) {
@@ -119,26 +116,27 @@ class Model {
         return $this->dado;
     }
 
-    public function campoValidacao($campoNome, $tamanhoMaximo = 100, $obrigatorio = true, $numero = false) {
+    public function campoValidacao($campoNome, $digitoMaximo = 100, $obrigatorio = true, $numero = false, $digitoMinimo = '') {
         $str = trim($this->dado[$campoNome]);
         $campoNome = ucwords(mb_strtolower(str_replace('_', ' ', $campoNome)));
 
         if (!$str && $obrigatorio) {
             @$this->erro[$campoNome] .= ' obrigatório, ';
         }
-
-        //STRING ===============================================================
-        if (!$numero && strlen($str) > $tamanhoMaximo) {
-            @$this->erro[$campoNome] .= " até $tamanhoMaximo caracteres, ";
+        
+        //MAXIMO CARACTERES ====================================================
+        if (strlen($str) > $digitoMaximo) {
+            @$this->erro[$campoNome] .= " até $digitoMaximo digitos, ";
+        }
+        
+        //MAXIMO CARACTERES ====================================================
+        if ($digitoMinimo && strlen($str) < $digitoMinimo) {
+            @$this->erro[$campoNome] .= " mínimo de $digitoMinimo digitos, ";
         }
 
         //NUMERO ===============================================================
         if ($numero && !is_numeric($str)) {
             @$this->erro[$campoNome] .= " tem que ser um número, ";
-        }
-
-        if ($numero && (float) $str > $tamanhoMaximo) {
-            @$this->erro[$campoNome] .= " até $tamanhoMaximo, ";
         }
 
         return true;

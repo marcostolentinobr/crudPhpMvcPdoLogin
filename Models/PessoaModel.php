@@ -47,11 +47,11 @@ class PessoaModel extends Model {
 
         //NOME - Obrigatório e até 100 caracteres
         $this->dado['NOME'] = ucwords(mb_strtolower(trim($dado['NOME'])));
-        $this->campoValidacao('NOME', 50);
+        $this->campoValidacao('NOME', 50, true, false, 3);
 
         //ID_CURSO - Obrigatório
         $this->dado['ID_CURSO'] = $dado['ID_CURSO'];
-        $this->campoValidacao('ID_CURSO', 999, true, true);
+        $this->campoValidacao('ID_CURSO', 3, true, true);
 
         //NOME - Já existe?
         if (!$this->erro && $metodo != 'Model::alterar') {

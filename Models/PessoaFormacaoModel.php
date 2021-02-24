@@ -21,6 +21,7 @@ class PessoaFormacaoModel extends Model {
                 }
             }
         }
+        return $okPessoa;
     }
 
 }

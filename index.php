@@ -1,4 +1,6 @@
 <?
+session_start();
+
 //BANCO DE DADOS
 define('DB_LIB', 'mysql');
 define('DB_HOST', '127.0.0.1');
@@ -58,6 +60,11 @@ define('RAIZ', __DIR__);
 $protocolo = (strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === false) ? 'http' : 'https';
 $url = $protocolo . '://' . $_SERVER['HTTP_HOST'] . str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
 define('URL', $url);
+
+//Caso não exista usuario logado, logue antes
+if (@!$_SESSION['USUARIO'] && CLASSE != 'Login') {
+    header('Location: ' . URL . 'Login/acessar');
+}
 ?>
 
 <style>
@@ -74,7 +81,8 @@ define('URL', $url);
     <a href="<?= URL ?>Index">INÍCIO</a> |
     <a href="<?= URL ?>Curso/listar">CURSO</a> |
     <a href="<?= URL ?>Formacao/listar">FORMAÇÃO</a> |
-    <a href="<?= URL ?>Pessoa/listar">PESSOA</a>
+    <a href="<?= URL ?>Pessoa/listar">PESSOA</a> | 
+    <small> <a href="<?= URL ?>Login/sair">sair</a> </small>
     <BR>
     <?
     //Model

@@ -14,7 +14,7 @@ class FormacaoModel extends Model {
 
         //PONTO - Obrigatório e até 100 caracteres
         $this->dado['PONTO'] = trim($dado['PONTO']);
-        $this->campoValidacao('PONTO', 999, true, true);
+        $this->campoValidacao('PONTO', 3, true, true);
 
         //APENAS INCLUIR
         if (!$this->erro && $metodo != 'Model::alterar') {

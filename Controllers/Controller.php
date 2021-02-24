@@ -12,12 +12,14 @@ class Controller {
     protected $where;
     protected $acaoDescricao = 'Incluir';
     protected $ID_CHAVE;
+    protected $listarMostrar = true;
+    protected $listarLargura = 500;
 
     public function __construct() {
         $this->acao();
     }
 
-    private function acao() {
+    protected function acao() {
 
         $Classe = CLASSE . 'Model';
         $this->Model = new $Classe();
@@ -53,6 +55,9 @@ class Controller {
             }
         } catch (Exception $ex) {
             $this->msgException = $ex->getMessage();
+            //Caso der erro manter os dados para tratar os erros
+            $this->acaoDescricao = $_POST['ACAO'];
+            $this->dado = $_POST;
         }
     }
 

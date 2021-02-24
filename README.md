@@ -12,12 +12,14 @@
  - ID_USUARIO BIGINT autoincrement [PK]
  - CPF varchar(11) not null
  - Nome varchar(50) not null  
- - Senha  varchar(20) not null 
-
-.Cada usuário que cadastrar uma pessoa terá sua chave vinculada
-
-## Requisitos
-
+ - Senha  varchar(20) not null   
+  
+.Cada usuário que cadastrar uma pessoa terá sua chave vinculada  
+.Só pode alterar ou excluir alguma pessoa se foi o usuário atual que incluiu  
+.mostrar na pessoa qual o usuário que incluiu  
+  
+## Requisitos  
+  
 .PHP  
 .Pdo  
 .Mysql  
