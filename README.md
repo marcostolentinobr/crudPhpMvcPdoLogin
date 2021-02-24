@@ -3,9 +3,10 @@
 .Projeto voltado a fazer um crud em MVC com Url Amigavel  
 .Cadastra Curso, não edita quando vinculado  
 .Cadastra Formação, não edita quando vinculado  
-.Cadastra Pessoa 
+.Cadastra Pessoa  
  - Vinculado a um curso 
- - Vinculado a 0 ou mais cursos
+ - Vinculado a 0 ou mais cursos  
+
 .Listagem de pessoa ordenado por maior pontuação descrescente, depois nome crescente  
 
 ## Requisitos
