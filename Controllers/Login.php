@@ -3,7 +3,7 @@
 class Login extends Controller {
 
     protected $descricao = '';
-    protected $acaoDescricao = 'Acessar/Cadastrar';
+    protected $acaoDescricao = 'Acessar';
     protected $listarMostrar = false;
     protected $listarLargura = 200;
 
@@ -22,7 +22,7 @@ class Login extends Controller {
 
         try {
             //ACESSAR
-            if ($this->acaoDescricaoPost == 'Acessar/Cadastrar') {
+            if ($this->acaoDescricaoPost == 'Acessar') {
                 //Caso for acessar já destruir a sessão
                 $this->sair(false);
 
