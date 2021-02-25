@@ -23,10 +23,13 @@ class PessoaModel extends Model {
                             ON F.ID_FORMACAO = PF.ID_FORMACAO
                           WHERE PF.ID_PESSOA = P.ID_PESSOA
                     ) AS FORMACAO_PONTOS,
-                   0 AS ITEM_UTILIZADO 
+                   0 AS ITEM_UTILIZADO,
+                   U.NOME AS USU_NOME
               FROM PESSOA P 
               JOIN CURSO C
                 ON C.ID_CURSO = P.ID_CURSO
+              JOIN USUARIO U
+                ON U.ID_USUARIO = P.ID_USUARIO
         ";
         $this->addOrder('
             FORMACAO_PONTOS DESC,  
@@ -52,6 +55,10 @@ class PessoaModel extends Model {
         //ID_CURSO - Obrigatório
         $this->dado['ID_CURSO'] = $dado['ID_CURSO'];
         $this->campoValidacao('ID_CURSO', 3, true, true);
+        
+        //ID_USUARIO - Obrigatório
+        $this->dado['ID_USUARIO'] = getSession('ID_USUARIO');
+        $this->campoValidacao('ID_USUARIO');
 
         //NOME - Já existe?
         if (!$this->erro && $metodo != 'Model::alterar') {

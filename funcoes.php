@@ -241,3 +241,12 @@ function instanciaModel($classe, $pdo = '') {
     $classe = "{$classe}Model";
     return new $classe($pdo);
 }
+
+//Usa a sessão
+function getSession($valor = '') {
+    $sessao = @$_SESSION['USUARIO'];
+    if ($valor) {
+        return @$sessao[$valor];
+    }
+    return $sessao;
+}
