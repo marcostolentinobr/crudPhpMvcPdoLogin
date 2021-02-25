@@ -139,27 +139,27 @@
     <index id="IDX39" populated="true" UUID="795ff317-7e77-45b5-9bca-dc69e4dcfc19" clustered="false" name="USUARIO_pk" physicalName="usuario_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC40" populated="true" UUID="e0629bb1-a457-4c60-a2be-383046886681" ascendingOrDescending="UNSPECIFIED" column-ref="COL35" name="ID_USUARIO" physicalName="ID_USUARIO" />
     </index>
-    <index id="IDX41" populated="true" UUID="ac1cddbd-ea2d-4183-8a38-b0038ca8443f" clustered="false" name="USUARIO_idx" physicalName="USUARIO_idx" primaryKeyIndex="false" unique="true" >
+    <index id="IDX41" populated="true" UUID="ac1cddbd-ea2d-4183-8a38-b0038ca8443f" clustered="false" name="USUARIO_idx" physicalName="usuario_idx" primaryKeyIndex="false" unique="true" >
      <index-column id="IDC42" populated="true" UUID="fcd0e4fe-60ee-4a76-aa1f-bfc4659ba12d" ascendingOrDescending="UNSPECIFIED" column-ref="COL36" name="CPF" physicalName="CPF" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL43" populated="true" UUID="6072bfc6-fc9d-4855-841a-04f50272dc03" deferrability="7" deleteRule="3" fk-table-ref="TAB28" fkCardinality="7" identifying="true" name="PESSOA_PESSOA_FORMACAO_fk" physicalName="PESSOA_PESSOA_FORMACAO_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   <relationship id="REL43" populated="true" UUID="6072bfc6-fc9d-4855-841a-04f50272dc03" deferrability="7" deleteRule="3" fk-table-ref="TAB28" fkCardinality="7" identifying="true" name="PESSOA_PESSOA_FORMACAO_fk" physicalName="pessoa_pessoa_formacao_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP44" populated="true" UUID="3e97e994-8a73-4d6d-b420-c661b5c966d6" fk-column-ref="COL30" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL45" populated="true" UUID="b1828fdb-1710-4c82-ade4-2db5293b097b" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="CURSO_PESSOA_fk" physicalName="CURSO_PESSOA_fk" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
+   <relationship id="REL45" populated="true" UUID="b1828fdb-1710-4c82-ade4-2db5293b097b" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="CURSO_PESSOA_fk" physicalName="curso_pessoa_fk" pk-table-ref="TAB11" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP46" populated="true" UUID="99306314-dbe2-40f2-a022-7d48aee875cd" fk-column-ref="COL3" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL12" />
    </relationship>
-   <relationship id="REL47" populated="true" UUID="2988b7cd-2800-4b17-8f75-fcd4ee3f46b4" deferrability="7" deleteRule="3" fk-table-ref="TAB28" fkCardinality="7" identifying="true" name="ID_FORMACAO_PESSOA_FORMACAO_fk" physicalName="ID_FORMACAO_PESSOA_FORMACAO_fk" pk-table-ref="TAB18" pkCardinality="2" updateRule="3" >
+   <relationship id="REL47" populated="true" UUID="2988b7cd-2800-4b17-8f75-fcd4ee3f46b4" deferrability="7" deleteRule="3" fk-table-ref="TAB28" fkCardinality="7" identifying="true" name="ID_FORMACAO_PESSOA_FORMACAO_fk" physicalName="id_formacao_pessoa_formacao_fk" pk-table-ref="TAB18" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP48" populated="true" UUID="f26b9e22-88f5-488d-b578-d17dffde7f77" fk-column-ref="COL29" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL19" />
    </relationship>
-   <relationship id="REL49" populated="true" UUID="1bd59ad8-ad64-4f20-b652-9bd9d208e831" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="USUARIO_PESSOA_fk" physicalName="USUARIO_PESSOA_fk" pk-table-ref="TAB34" pkCardinality="2" updateRule="3" >
+   <relationship id="REL49" populated="true" UUID="1bd59ad8-ad64-4f20-b652-9bd9d208e831" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="USUARIO_PESSOA_fk" physicalName="usuario_pessoa_fk" pk-table-ref="TAB34" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP50" populated="true" UUID="2bd719c9-ed6d-4118-acdb-576e56629657" fk-column-ref="COL6" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL35" />
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="true"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.MySqlDDLGenerator" allow-connection="false"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
