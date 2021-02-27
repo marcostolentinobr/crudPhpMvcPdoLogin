@@ -14,6 +14,10 @@ class Model {
         $this->pdo = $this->pdo();
     }
 
+    public function getDados() {
+        return $this->dado;
+    }
+
     //DADOS
     protected function dado($dado, $metodo = __METHOD__) {
         return [];
@@ -112,7 +116,6 @@ class Model {
             }
             throw new Exception("<div style='color: black'>$mensagem</div>");
         }
-
         return $this->dado;
     }
 
@@ -123,12 +126,12 @@ class Model {
         if (!$str && $obrigatorio) {
             @$this->erro[$campoNome] .= ' obrigatório, ';
         }
-        
+
         //MAXIMO CARACTERES ====================================================
         if (strlen($str) > $digitoMaximo) {
             @$this->erro[$campoNome] .= " até $digitoMaximo digitos, ";
         }
-        
+
         //MAXIMO CARACTERES ====================================================
         if ($digitoMinimo && strlen($str) < $digitoMinimo) {
             @$this->erro[$campoNome] .= " mínimo de $digitoMinimo digitos, ";

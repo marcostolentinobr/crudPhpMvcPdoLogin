@@ -14,6 +14,7 @@ class Controller {
     protected $ID_CHAVE;
     protected $listarMostrar = true;
     protected $listarLargura = 500;
+    protected $arquivoForm = '';
 
     public function __construct() {
         $this->acao();
@@ -29,7 +30,6 @@ class Controller {
             return;
         }
         $this->acaoDescricaoPost = $_POST['ACAO'];
-
         try {
             //INCLUIR
             if ($this->acaoDescricaoPost == 'Incluir') {
@@ -40,6 +40,7 @@ class Controller {
             elseif ($this->acaoDescricaoPost == 'Alterar') {
                 $this->msgOk = 'Alterado';
                 $this->ok = $this->Model->alterar();
+                $this->dado = $this->Model->getDados();
                 $this->acaoDescricao = 'Incluir';
             }
             //EXCLUIR
@@ -59,14 +60,28 @@ class Controller {
             $this->acaoDescricao = $_POST['ACAO'];
             $this->dado = $_POST;
         }
+        $this->executaPosAcao();
     }
 
-    public function tamplateLista() {
+    protected function executaPosAcao() {
+        
+    }
+
+    protected function requireForm($arquivo, $acaoDescricao) {
+        $this->acaoDescricao = $acaoDescricao;
+        $this->arquivoForm = "-$arquivo";
+        require_once RAIZ . '/Views/mensagemAcao.php';
+        require_once RAIZ . '/Views/tamplateFormulario.php';
+    }
+
+    protected function tamplateLista() {
         require_once __DIR__ . '/../Views/tamplateLista.php';
     }
 
     public function listar() {
-        $this->qry = $this->Model->listar();
+        if ($this->listarMostrar) {
+            $this->qry = $this->Model->listar();
+        }
         require_once RAIZ . '/Views/templatePadrao.php';
     }
 

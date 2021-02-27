@@ -71,9 +71,9 @@ if (@!$_SESSION['USUARIO'] && CLASSE != 'Login') {
         echo '
             <small 
                 class="sublinhadoPontilhadoPointer"
-                title="' . getSession('NOME') . ' (' . campo(getSession('CPF'), 'CPF') . ')" 
+                title="Clique para alterar a senha&#013;' . getSession('NOME') . ' (' . campo(getSession('CPF'), 'CPF') . ')" 
             >
-                (' . reticencias(getSession('NOME'), 10) . ')
+                <a href="' . URL . 'Usuario/alterarSenha">(' . reticencias(getSession('NOME'), 10) . ')</a>
             </small>
         ';
         ?>

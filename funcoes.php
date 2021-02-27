@@ -168,10 +168,6 @@ function campo($elemento, $tipo = '', $maiuscula = false, $decimal = 2) {
     if ($tipo == 'S') {
         $elemento = str_replace(array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), '', $elemento);
     }
-    //Letras
-    if ($tipo == 'S') {
-        $elemento = str_replace(array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'), '', $elemento);
-    }
     //Data - banco com hora
     elseif ($tipo == 'D') {
         $elemento = dataFormatar($elemento);
@@ -184,7 +180,7 @@ function campo($elemento, $tipo = '', $maiuscula = false, $decimal = 2) {
     elseif ($tipo == 'DM') {
         $elemento = dataFormatar($elemento, 'M', true);
     }
-    //Data - mostrar
+    //Fone - mostrar
     elseif ($tipo == 'F') {
         $elemento = str_replace('() -', '', str_replace('#', '', mascara('(##) ####-#####', $elemento)));
     }
@@ -240,6 +236,10 @@ function instanciaModel($classe, $pdo = '') {
     require_once RAIZ . "/Models/{$classe}Model.php";
     $classe = "{$classe}Model";
     return new $classe($pdo);
+}
+
+function setSession($campo, $valor) {
+    $_SESSION['USUARIO'][$campo] = $valor;
 }
 
 //Usa a sessão
