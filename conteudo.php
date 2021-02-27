@@ -25,3 +25,9 @@ if (class_exists($Classe)) {
         $Classe->$Metodo();
     }
 }
+//Não existe classe
+else {
+    echo '<h2>1ª Cadastre os cursos</h2>';
+    echo '<h2>2ª Cadastre as formações</h2>';
+    echo '<h2>3ª Cadastre as pessoas</h2>';
+}

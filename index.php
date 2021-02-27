@@ -45,13 +45,5 @@
         <a href="<?= URL ?>Usuario/listar">USUARIO</a> |
     <? } ?>
     <BR>
-    <?
-    require_once 'conteudo.php'
-    //Não existe classe
-    else {
-        echo '<h2>1ª Cadastre os cursos</h2>';
-        echo '<h2>2ª Cadastre as formações</h2>';
-        echo '<h2>3ª Cadastre as pessoas</h2>';
-    }
-    ?>
+    <? require_once 'conteudo.php'; ?>
 </center>
