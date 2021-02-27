@@ -52,7 +52,7 @@ if (@!$_SESSION['USUARIO'] && CLASSE != 'Login') {
         text-decoration-style: dotted; 
         cursor: pointer;
     }
-    
+
     .sublinhadoPointer {
         text-decoration: underline; 
         cursor: pointer;
@@ -68,7 +68,14 @@ if (@!$_SESSION['USUARIO'] && CLASSE != 'Login') {
         <a href="<?= URL ?>Pessoa/listar">PESSOA</a> |
 
         <?
-        echo '<small>(' . reticencias($_SESSION['USUARIO']['NOME'], 10) . ')</small>';
+        echo '
+            <small 
+                class="sublinhadoPontilhadoPointer"
+                title="' . getSession('NOME') . ' (' . campo(getSession('CPF'), 'CPF') . ')" 
+            >
+                (' . reticencias(getSession('NOME'), 10) . ')
+            </small>
+        ';
         ?>
         <small> <a href="<?= URL ?>Login/sair"><sup>Sair</sup></a> </small>
     <? } else { ?>
