@@ -51,11 +51,14 @@ class PessoaModel extends Model {
         //NOME - Obrigatório e até 100 caracteres
         $this->dado['NOME'] = ucwords(mb_strtolower(trim($dado['NOME'])));
         $this->campoValidacao('NOME', 50, true, false, 3);
+        if (!nomeSobreNomeValidar($this->dado['NOME'])) {
+            $this->erro['Nome'] = 'É necessário nome e sobrenome';
+        }
 
         //ID_CURSO - Obrigatório
         $this->dado['ID_CURSO'] = $dado['ID_CURSO'];
         $this->campoValidacao('ID_CURSO', 3, true, true);
-        
+
         //ID_USUARIO - Obrigatório
         $this->dado['ID_USUARIO'] = getSession('ID_USUARIO');
         $this->campoValidacao('ID_USUARIO');
