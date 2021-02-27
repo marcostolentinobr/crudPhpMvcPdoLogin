@@ -35,7 +35,7 @@
 
 ## Configuração
 
-.Configure o banco de dados no inicio do arquivo index.php
+.Configure o banco de dados no inicio do arquivo config.php
 
 ## Autor
 
